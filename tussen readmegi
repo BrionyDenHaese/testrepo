@@ -51,3 +51,28 @@ Als dit een foutmelding geeft bij een van de 2 moet er eerst iets anders gebeure
 ssh-add /home/briony/.ssh/id_rsa
 ```
 * Dit is terug de repository waar de keys zich bevinden, en hierbij zal er opnieuw naar de passphrase gevraagd worden, wanneer deze juist is ingegeven zou de bovenstaande test van de verbinding wel moeten lukken, en zou de SSH keypair juist tot stand moeten gebracht zijn
+
+##4) Verbinding met github maken via terminal
+
+* Om te starten moet je op je eigen pc een directory aanmaken, waarin je de bestanden van github zult plaatsen en synchroniseren. Maak daarna een klein tekstbestand aan, om op te volgen of het communiceren met github lukt.
+```
+mkdir ~/MyGithubProject
+cd ~/MyGithubProject
+touch test.txt
+```
+* Van hieruit start een opeenvolging van enkele commando's:
+```
+git status
+git add test.txt
+git commit -m "Add test.txt"
+git remote add origin https://github.com/username/mygithubproject.git
+git remote -v
+git push -u origin master
+```
+* als er een foutmelding wordt gegeven na de *git push*, typ dan *git remote rm origin*, en start opnieuw met de commando's vanaf *git remote add origin*
+
+##5) Bestanden binnenhalen van github:
+
+```
+git pull remote master
+```
